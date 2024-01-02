@@ -1,0 +1,30 @@
+{
+  "name": "random-numbers",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/random-numbers/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/random-numbers",
+        "main": "libs/random-numbers/src/index.ts",
+        "tsConfig": "libs/random-numbers/tsconfig.lib.json",
+        "assets": ["libs/random-numbers/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/random-numbers/jest.config.ts"
+      }
+    }
+  },
+  "tags": []
+}
